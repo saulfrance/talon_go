@@ -6846,6 +6846,25 @@ paths:
       - management
       x-codegen-request-body-name: body
   /v1/attributes/{attributeId}:
+    delete:
+      description: Delete an existing custom attribute.
+      operationId: deleteAttribute
+      parameters:
+      - description: The ID of the attribute. You can find the ID in the Campaign
+          Manager's URL when you display the details of an attribute in **Account**
+          > **Tools** > **Attributes**.
+        in: path
+        name: attributeId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete custom attribute
+      tags:
+      - management
     get:
       description: |
         Retrieve the specified custom attribute.
@@ -8542,6 +8561,145 @@ paths:
       summary: Get role
       tags:
       - management
+  /v1/custom_effects:
+    get:
+      description: |
+        Return all the custom effects for the account.
+      operationId: getCustomEffects
+      parameters:
+      - description: The number of items in this response.
+        in: query
+        name: pageSize
+        schema:
+          default: 1000
+          maximum: 1000
+          minimum: 1
+          type: integer
+      - description: Skips the given number of items when paging through large result
+          sets.
+        in: query
+        name: skip
+        schema:
+          type: integer
+      - description: |
+          The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.
+
+          **Note:** This parameter works only with numeric fields.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Returned custom effects will be filtered by supplied entity.
+        in: query
+        name: entity
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_31'
+          description: OK
+      summary: List custom effects
+      tags:
+      - management
+    post:
+      description: |
+        Create a _custom effect_ in this account.
+      operationId: createCustomEffect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCustomEffect'
+        description: body
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomEffect'
+          description: Created
+      summary: Create custom effect
+      tags:
+      - management
+      x-codegen-request-body-name: body
+  /v1/custom_effects/{customEffectId}:
+    delete:
+      description: Delete an existing custom effect.
+      operationId: deleteCustomEffect
+      parameters:
+      - description: The ID of the custom effect. You can find the ID in the Campaign 
+          Manager's URL when you display the details of an custom effect in **Account** 
+          > **Tools** > **Custom Effects**.
+        in: path
+        name: customEffectId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete custom effect
+      tags:
+      - management
+    get:
+      description: |
+        Returns custom effect for the account by its id.
+      operationId: getCustomEffect
+      parameters:
+      - description: The ID of the attribute. You can find the ID in the Campaign
+          Manager's URL when you display the details of an attribute in **Account**
+          > **Tools** > **Attributes**.
+        in: path
+        name: customEffectId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomEffect'
+          description: OK
+      summary: Get custom effect
+      tags:
+      - management
+    put:
+      description: |
+        Update an existing custom effect.
+      operationId: updateCustomEffect
+      parameters:
+      - description: The ID of the custom effect. You can find the ID in the Campaign
+          Manager's URL when you display the details of an custom effect in **Account**
+          > **Tools** > **Custom Effects**.
+        in: path
+        name: customEffectId
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCustomEffect'
+        description: body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomEffect'
+          description: OK
+      summary: Update custom effect
+      tags:
+      - management
+      x-codegen-request-body-name: body
 components:
   schemas:
     ErrorResponse:

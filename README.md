@@ -305,15 +305,18 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**CreateCoupons**](docs/ManagementApi.md#createcoupons) | **Post** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
 *ManagementApi* | [**CreateCouponsAsync**](docs/ManagementApi.md#createcouponsasync) | **Post** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_async | Create coupons asynchronously
 *ManagementApi* | [**CreateCouponsForMultipleRecipients**](docs/ManagementApi.md#createcouponsformultiplerecipients) | **Post** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
+*ManagementApi* | [**CreateCustomEffect**](docs/ManagementApi.md#createcustomeffect) | **Post** /v1/custom_effects | Create custom effect
 *ManagementApi* | [**CreateNotificationWebhook**](docs/ManagementApi.md#createnotificationwebhook) | **Post** /v1/applications/{applicationId}/notification_webhooks | Create notification about campaign-related changes
 *ManagementApi* | [**CreatePasswordRecoveryEmail**](docs/ManagementApi.md#createpasswordrecoveryemail) | **Post** /v1/password_recovery_emails | Request a password reset
 *ManagementApi* | [**CreateSession**](docs/ManagementApi.md#createsession) | **Post** /v1/sessions | Create session
 *ManagementApi* | [**DeductLoyaltyCardPoints**](docs/ManagementApi.md#deductloyaltycardpoints) | **Put** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 *ManagementApi* | [**DeleteAccountCollection**](docs/ManagementApi.md#deleteaccountcollection) | **Delete** /v1/collections/{collectionId} | Delete account-level collection
+*ManagementApi* | [**DeleteAttribute**](docs/ManagementApi.md#deleteattribute) | **Delete** /v1/attributes/{attributeId} | Delete custom attribute
 *ManagementApi* | [**DeleteCampaign**](docs/ManagementApi.md#deletecampaign) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
 *ManagementApi* | [**DeleteCollection**](docs/ManagementApi.md#deletecollection) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete collection
 *ManagementApi* | [**DeleteCoupon**](docs/ManagementApi.md#deletecoupon) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
 *ManagementApi* | [**DeleteCoupons**](docs/ManagementApi.md#deletecoupons) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
+*ManagementApi* | [**DeleteCustomEffect**](docs/ManagementApi.md#deletecustomeffect) | **Delete** /v1/custom_effects/{customEffectId} | Delete custom effect
 *ManagementApi* | [**DeleteLoyaltyCard**](docs/ManagementApi.md#deleteloyaltycard) | **Delete** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Delete loyalty card
 *ManagementApi* | [**DeleteNotificationWebhook**](docs/ManagementApi.md#deletenotificationwebhook) | **Delete** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Delete notification about campaign-related changes
 *ManagementApi* | [**DeleteReferral**](docs/ManagementApi.md#deletereferral) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
@@ -360,6 +363,8 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**GetCollection**](docs/ManagementApi.md#getcollection) | **Get** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Get collection
 *ManagementApi* | [**GetCollectionItems**](docs/ManagementApi.md#getcollectionitems) | **Get** /v1/collections/{collectionId}/items | Get collection items
 *ManagementApi* | [**GetCouponsWithoutTotalCount**](docs/ManagementApi.md#getcouponswithouttotalcount) | **Get** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
+*ManagementApi* | [**GetCustomEffect**](docs/ManagementApi.md#getcustomeffect) | **Get** /v1/custom_effects/{customEffectId} | Get custom effect
+*ManagementApi* | [**GetCustomEffects**](docs/ManagementApi.md#getcustomeffects) | **Get** /v1/custom_effects | List custom effects
 *ManagementApi* | [**GetCustomerActivityReport**](docs/ManagementApi.md#getcustomeractivityreport) | **Get** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get customer&#39;s activity report
 *ManagementApi* | [**GetCustomerActivityReportsWithoutTotalCount**](docs/ManagementApi.md#getcustomeractivityreportswithouttotalcount) | **Get** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 *ManagementApi* | [**GetCustomerAnalytics**](docs/ManagementApi.md#getcustomeranalytics) | **Get** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get customer&#39;s analytics report
@@ -413,6 +418,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**UpdateCollection**](docs/ManagementApi.md#updatecollection) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update collection description
 *ManagementApi* | [**UpdateCoupon**](docs/ManagementApi.md#updatecoupon) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
 *ManagementApi* | [**UpdateCouponBatch**](docs/ManagementApi.md#updatecouponbatch) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update coupons
+*ManagementApi* | [**UpdateCustomEffect**](docs/ManagementApi.md#updatecustomeffect) | **Put** /v1/custom_effects/{customEffectId} | Update custom effect
 *ManagementApi* | [**UpdateLoyaltyCard**](docs/ManagementApi.md#updateloyaltycard) | **Put** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card status
 *ManagementApi* | [**UpdateNotificationWebhook**](docs/ManagementApi.md#updatenotificationwebhook) | **Put** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Update notification about campaign-related changes
 *ManagementApi* | [**UpdateReferral**](docs/ManagementApi.md#updatereferral) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral

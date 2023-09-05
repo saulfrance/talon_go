@@ -2714,7 +2714,6 @@ type apiDeleteAttributeRequest struct {
 /*
 DeleteAttribute Delete custom attribute
 Delete an existing custom attribute.
-
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param attributeId The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
 
@@ -2738,7 +2737,6 @@ func (r apiDeleteAttributeRequest) Execute() (*_nethttp.Response, error) {
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Attribute
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ManagementApiService.DeleteAttribute")
@@ -2754,7 +2752,7 @@ func (r apiDeleteAttributeRequest) Execute() (*_nethttp.Response, error) {
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -2763,7 +2761,7 @@ func (r apiDeleteAttributeRequest) Execute() (*_nethttp.Response, error) {
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -2818,24 +2816,6 @@ func (r apiDeleteAttributeRequest) Execute() (*_nethttp.Response, error) {
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Attribute
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3474,7 +3454,6 @@ type apiDeleteCustomEffectRequest struct {
 /*
 DeleteCustomEffect Delete custom effect
 Delete an existing custom effect.
-
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param customEffectId The ID of the custom effect. You can find the ID in the Campaign Manager's URL when you display the details of an custom effect in **Account** > **Tools** > **Custom Effects**.
 
@@ -3498,7 +3477,6 @@ func (r apiDeleteCustomEffectRequest) Execute() (*_nethttp.Response, error) {
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  CustomEffect
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ManagementApiService.DeleteCustomEffect")
@@ -3514,7 +3492,7 @@ func (r apiDeleteCustomEffectRequest) Execute() (*_nethttp.Response, error) {
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -3523,7 +3501,7 @@ func (r apiDeleteCustomEffectRequest) Execute() (*_nethttp.Response, error) {
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -3578,24 +3556,6 @@ func (r apiDeleteCustomEffectRequest) Execute() (*_nethttp.Response, error) {
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v CustomEffect
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11776,9 +11736,9 @@ func (r apiGetCouponsWithoutTotalCountRequest) Execute() (InlineResponse2008, *_
 }
 
 type apiGetCustomEffectRequest struct {
-	ctx        _context.Context
-	apiService *ManagementApiService
-	effectId   int32
+	ctx            _context.Context
+	apiService     *ManagementApiService
+	customEffectId int32
 }
 
 /*
@@ -11786,15 +11746,15 @@ GetCustomEffect Get custom effect
 Returns custom effect for the account by its id.
 
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param effectId
+  - @param customEffectId The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
 
 @return apiGetCustomEffectRequest
 */
-func (a *ManagementApiService) GetCustomEffect(ctx _context.Context, effectId int32) apiGetCustomEffectRequest {
+func (a *ManagementApiService) GetCustomEffect(ctx _context.Context, customEffectId int32) apiGetCustomEffectRequest {
 	return apiGetCustomEffectRequest{
-		apiService: a,
-		ctx:        ctx,
-		effectId:   effectId,
+		apiService:     a,
+		ctx:            ctx,
+		customEffectId: customEffectId,
 	}
 }
 
@@ -11818,8 +11778,8 @@ func (r apiGetCustomEffectRequest) Execute() (CustomEffect, *_nethttp.Response, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/custom_effects/{effectId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"effectId"+"}", _neturl.QueryEscape(parameterToString(r.effectId, "")), -1)
+	localVarPath := localBasePath + "/v1/custom_effects/{customEffectId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"customEffectId"+"}", _neturl.QueryEscape(parameterToString(r.customEffectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -11879,6 +11839,178 @@ func (r apiGetCustomEffectRequest) Execute() (CustomEffect, *_nethttp.Response, 
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
 			var v CustomEffect
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetCustomEffectsRequest struct {
+	ctx        _context.Context
+	apiService *ManagementApiService
+	pageSize   *int32
+	skip       *int32
+	sort       *string
+	entity     *string
+}
+
+func (r apiGetCustomEffectsRequest) PageSize(pageSize int32) apiGetCustomEffectsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r apiGetCustomEffectsRequest) Skip(skip int32) apiGetCustomEffectsRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r apiGetCustomEffectsRequest) Sort(sort string) apiGetCustomEffectsRequest {
+	r.sort = &sort
+	return r
+}
+
+func (r apiGetCustomEffectsRequest) Entity(entity string) apiGetCustomEffectsRequest {
+	r.entity = &entity
+	return r
+}
+
+/*
+GetCustomEffects List custom effects
+Return all the custom effects for the account.
+
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+
+@return apiGetCustomEffectsRequest
+*/
+func (a *ManagementApiService) GetCustomEffects(ctx _context.Context) apiGetCustomEffectsRequest {
+	return apiGetCustomEffectsRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+
+	@return InlineResponse20031
+*/
+func (r apiGetCustomEffectsRequest) Execute() (InlineResponse20031, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InlineResponse20031
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ManagementApiService.GetCustomEffects")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/custom_effects"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.skip != nil {
+		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.entity != nil {
+		localVarQueryParams.Add("entity", parameterToString(*r.entity, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if auth, ok := auth["Authorization"]; ok {
+				var key string
+				if auth.Prefix != "" {
+					key = auth.Prefix + " " + auth.Key
+				} else {
+					key = auth.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 200 {
+			var v InlineResponse20031
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

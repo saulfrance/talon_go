@@ -15,15 +15,18 @@ Method | HTTP request | Description
 [**CreateCoupons**](ManagementApi.md#CreateCoupons) | **Post** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
 [**CreateCouponsAsync**](ManagementApi.md#CreateCouponsAsync) | **Post** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_async | Create coupons asynchronously
 [**CreateCouponsForMultipleRecipients**](ManagementApi.md#CreateCouponsForMultipleRecipients) | **Post** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
+[**CreateCustomEffect**](ManagementApi.md#CreateCustomEffect) | **Post** /v1/custom_effects | Create custom effect
 [**CreateNotificationWebhook**](ManagementApi.md#CreateNotificationWebhook) | **Post** /v1/applications/{applicationId}/notification_webhooks | Create notification about campaign-related changes
 [**CreatePasswordRecoveryEmail**](ManagementApi.md#CreatePasswordRecoveryEmail) | **Post** /v1/password_recovery_emails | Request a password reset
 [**CreateSession**](ManagementApi.md#CreateSession) | **Post** /v1/sessions | Create session
 [**DeductLoyaltyCardPoints**](ManagementApi.md#DeductLoyaltyCardPoints) | **Put** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 [**DeleteAccountCollection**](ManagementApi.md#DeleteAccountCollection) | **Delete** /v1/collections/{collectionId} | Delete account-level collection
+[**DeleteAttribute**](ManagementApi.md#DeleteAttribute) | **Delete** /v1/attributes/{attributeId} | Delete custom attribute
 [**DeleteCampaign**](ManagementApi.md#DeleteCampaign) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
 [**DeleteCollection**](ManagementApi.md#DeleteCollection) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete collection
 [**DeleteCoupon**](ManagementApi.md#DeleteCoupon) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
 [**DeleteCoupons**](ManagementApi.md#DeleteCoupons) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
+[**DeleteCustomEffect**](ManagementApi.md#DeleteCustomEffect) | **Delete** /v1/custom_effects/{customEffectId} | Delete custom effect
 [**DeleteLoyaltyCard**](ManagementApi.md#DeleteLoyaltyCard) | **Delete** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Delete loyalty card
 [**DeleteNotificationWebhook**](ManagementApi.md#DeleteNotificationWebhook) | **Delete** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Delete notification about campaign-related changes
 [**DeleteReferral**](ManagementApi.md#DeleteReferral) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
@@ -70,6 +73,8 @@ Method | HTTP request | Description
 [**GetCollection**](ManagementApi.md#GetCollection) | **Get** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Get collection
 [**GetCollectionItems**](ManagementApi.md#GetCollectionItems) | **Get** /v1/collections/{collectionId}/items | Get collection items
 [**GetCouponsWithoutTotalCount**](ManagementApi.md#GetCouponsWithoutTotalCount) | **Get** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
+[**GetCustomEffect**](ManagementApi.md#GetCustomEffect) | **Get** /v1/custom_effects/{customEffectId} | Get custom effect
+[**GetCustomEffects**](ManagementApi.md#GetCustomEffects) | **Get** /v1/custom_effects | List custom effects
 [**GetCustomerActivityReport**](ManagementApi.md#GetCustomerActivityReport) | **Get** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get customer&#39;s activity report
 [**GetCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#GetCustomerActivityReportsWithoutTotalCount) | **Get** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**GetCustomerAnalytics**](ManagementApi.md#GetCustomerAnalytics) | **Get** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get customer&#39;s analytics report
@@ -123,6 +128,7 @@ Method | HTTP request | Description
 [**UpdateCollection**](ManagementApi.md#UpdateCollection) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update collection description
 [**UpdateCoupon**](ManagementApi.md#UpdateCoupon) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
 [**UpdateCouponBatch**](ManagementApi.md#UpdateCouponBatch) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update coupons
+[**UpdateCustomEffect**](ManagementApi.md#UpdateCustomEffect) | **Put** /v1/custom_effects/{customEffectId} | Update custom effect
 [**UpdateLoyaltyCard**](ManagementApi.md#UpdateLoyaltyCard) | **Put** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card status
 [**UpdateNotificationWebhook**](ManagementApi.md#UpdateNotificationWebhook) | **Put** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Update notification about campaign-related changes
 [**UpdateReferral**](ManagementApi.md#UpdateReferral) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
@@ -614,6 +620,45 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateCustomEffect
+
+> CustomEffect CreateCustomEffect(ctx).Body(body).Execute()
+
+Create custom effect
+
+
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateCustomEffectRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewCustomEffect**](NewCustomEffect.md) | body | 
+
+### Return type
+
+[**CustomEffect**](CustomEffect.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateNotificationWebhook
 
 > NotificationWebhook CreateNotificationWebhook(ctx, applicationId).Body(body).Execute()
@@ -825,6 +870,49 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteAttribute
+
+> DeleteAttribute(ctx, attributeId).Execute()
+
+Delete custom attribute
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**attributeId** | **int32** | The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteAttributeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteCampaign
 
 > DeleteCampaign(ctx, applicationId, campaignId).Execute()
@@ -1003,6 +1091,49 @@ Name | Type | Description  | Notes
  **referralId** | **int32** | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | 
  **recipientIntegrationId** | **string** | Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field.  | 
  **exactMatch** | **bool** | Filter results to an exact case-insensitive matching against the coupon code | [default to false]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteCustomEffect
+
+> DeleteCustomEffect(ctx, customEffectId).Execute()
+
+Delete custom effect
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customEffectId** | **int32** | The ID of the custom effect. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an custom effect in **Account** &gt; **Tools** &gt; **Custom Effects**. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteCustomEffectRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
 
@@ -3123,6 +3254,91 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse2008**](inline_response_200_8.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCustomEffect
+
+> CustomEffect GetCustomEffect(ctx, customEffectId).Execute()
+
+Get custom effect
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customEffectId** | **int32** | The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCustomEffectRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**CustomEffect**](CustomEffect.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCustomEffects
+
+> InlineResponse20031 GetCustomEffects(ctx).PageSize(pageSize).Skip(skip).Sort(sort).Entity(entity).Execute()
+
+List custom effects
+
+
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCustomEffectsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int32** | The number of items in this response. | [default to 1000]
+ **skip** | **int32** | Skips the given number of items when paging through large result sets. | 
+ **sort** | **string** | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | 
+ **entity** | **string** | Returned custom effects will be filtered by supplied entity. | 
+
+### Return type
+
+[**InlineResponse20031**](inline_response_200_31.md)
 
 ### Authorization
 
@@ -5550,6 +5766,50 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateCustomEffect
+
+> CustomEffect UpdateCustomEffect(ctx, customEffectId).Body(body).Execute()
+
+Update custom effect
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customEffectId** | **int32** | The ID of the custom effect. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an custom effect in **Account** &gt; **Tools** &gt; **Custom Effects**. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateCustomEffectRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**NewCustomEffect**](NewCustomEffect.md) | body | 
+
+### Return type
+
+[**CustomEffect**](CustomEffect.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
