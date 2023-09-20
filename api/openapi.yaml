@@ -8700,6 +8700,97 @@ paths:
       tags:
       - management
       x-codegen-request-body-name: body
+  /v1/picklist:
+    post:
+      description: |
+        Create a _picklist_ in this account.
+      operationId: createPicklist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPicklist'
+        description: body
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Picklist'
+          description: Created
+      summary: Create picklist
+      tags:
+      - management
+      x-codegen-request-body-name: body
+  /v1/picklist/{picklistId}:
+    delete:
+      description: Delete an existing picklist.
+      operationId: deletePicklist
+      parameters:
+      - description: The ID of the picklist.
+        in: path
+        name: picklistId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete picklist
+      tags:
+      - management
+    get:
+      description: |
+        Retrieve the specified picklist.
+      operationId: getPicklist
+      parameters:
+      - description: The ID of the picklist.
+        in: path
+        name: picklistId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Picklist'
+          description: OK
+      summary: Get picklist
+      tags:
+      - management
+    put:
+      description: |
+        Update an existing picklist
+      operationId: updatePicklist
+      parameters:
+      - description: The ID of the picklist.
+        in: path
+        name: picklistId
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPicklist'
+        description: body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Picklist'
+          description: OK
+      summary: Update picklist
+      tags:
+      - management
+      x-codegen-request-body-name: body
 components:
   schemas:
     ErrorResponse:

@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**CreateCustomEffect**](ManagementApi.md#CreateCustomEffect) | **Post** /v1/custom_effects | Create custom effect
 [**CreateNotificationWebhook**](ManagementApi.md#CreateNotificationWebhook) | **Post** /v1/applications/{applicationId}/notification_webhooks | Create notification about campaign-related changes
 [**CreatePasswordRecoveryEmail**](ManagementApi.md#CreatePasswordRecoveryEmail) | **Post** /v1/password_recovery_emails | Request a password reset
+[**CreatePicklist**](ManagementApi.md#CreatePicklist) | **Post** /v1/picklist | Create picklist
 [**CreateSession**](ManagementApi.md#CreateSession) | **Post** /v1/sessions | Create session
 [**DeductLoyaltyCardPoints**](ManagementApi.md#DeductLoyaltyCardPoints) | **Put** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 [**DeleteAccountCollection**](ManagementApi.md#DeleteAccountCollection) | **Delete** /v1/collections/{collectionId} | Delete account-level collection
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**DeleteCustomEffect**](ManagementApi.md#DeleteCustomEffect) | **Delete** /v1/custom_effects/{customEffectId} | Delete custom effect
 [**DeleteLoyaltyCard**](ManagementApi.md#DeleteLoyaltyCard) | **Delete** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Delete loyalty card
 [**DeleteNotificationWebhook**](ManagementApi.md#DeleteNotificationWebhook) | **Delete** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Delete notification about campaign-related changes
+[**DeletePicklist**](ManagementApi.md#DeletePicklist) | **Delete** /v1/picklist/{picklistId} | Delete picklist
 [**DeleteReferral**](ManagementApi.md#DeleteReferral) | **Delete** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
 [**DestroySession**](ManagementApi.md#DestroySession) | **Delete** /v1/sessions | Destroy session
 [**ExportAccountCollectionItems**](ManagementApi.md#ExportAccountCollectionItems) | **Get** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
@@ -93,6 +95,7 @@ Method | HTTP request | Description
 [**GetLoyaltyStatistics**](ManagementApi.md#GetLoyaltyStatistics) | **Get** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
 [**GetNotificationWebhook**](ManagementApi.md#GetNotificationWebhook) | **Get** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Get notification about campaign-related changes
 [**GetNotificationWebhooks**](ManagementApi.md#GetNotificationWebhooks) | **Get** /v1/applications/{applicationId}/notification_webhooks | List notifications about campaign-related changes
+[**GetPicklist**](ManagementApi.md#GetPicklist) | **Get** /v1/picklist/{picklistId} | Get picklist
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#GetReferralsWithoutTotalCount) | **Get** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**GetRole**](ManagementApi.md#GetRole) | **Get** /v1/roles/{roleId} | Get role
 [**GetRuleset**](ManagementApi.md#GetRuleset) | **Get** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
@@ -131,6 +134,7 @@ Method | HTTP request | Description
 [**UpdateCustomEffect**](ManagementApi.md#UpdateCustomEffect) | **Put** /v1/custom_effects/{customEffectId} | Update custom effect
 [**UpdateLoyaltyCard**](ManagementApi.md#UpdateLoyaltyCard) | **Put** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card status
 [**UpdateNotificationWebhook**](ManagementApi.md#UpdateNotificationWebhook) | **Put** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Update notification about campaign-related changes
+[**UpdatePicklist**](ManagementApi.md#UpdatePicklist) | **Put** /v1/picklist/{picklistId} | Update picklist
 [**UpdateReferral**](ManagementApi.md#UpdateReferral) | **Put** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
 
 
@@ -742,6 +746,45 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreatePicklist
+
+> Picklist CreatePicklist(ctx).Body(body).Execute()
+
+Create picklist
+
+
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreatePicklistRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewPicklist**](NewPicklist.md) | body | 
+
+### Return type
+
+[**Picklist**](Picklist.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateSession
 
 > Session CreateSession(ctx).Body(body).Execute()
@@ -1223,6 +1266,49 @@ Other parameters are passed through a pointer to a apiDeleteNotificationWebhookR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeletePicklist
+
+> DeletePicklist(ctx, picklistId).Execute()
+
+Delete picklist
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**picklistId** | **int32** | The ID of the picklist. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeletePicklistRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -4161,6 +4247,49 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetPicklist
+
+> Picklist GetPicklist(ctx, picklistId).Execute()
+
+Get picklist
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**picklistId** | **int32** | The ID of the picklist. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPicklistRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**Picklist**](Picklist.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetReferralsWithoutTotalCount
 
 > InlineResponse2009 GetReferralsWithoutTotalCount(ctx, applicationId, campaignId).PageSize(pageSize).Skip(skip).Sort(sort).Code(code).CreatedBefore(createdBefore).CreatedAfter(createdAfter).Valid(valid).Usable(usable).Advocate(advocate).Execute()
@@ -5893,6 +6022,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NotificationWebhook**](NotificationWebhook.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdatePicklist
+
+> Picklist UpdatePicklist(ctx, picklistId).Body(body).Execute()
+
+Update picklist
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**picklistId** | **int32** | The ID of the picklist. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdatePicklistRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**NewPicklist**](NewPicklist.md) | body | 
+
+### Return type
+
+[**Picklist**](Picklist.md)
 
 ### Authorization
 
